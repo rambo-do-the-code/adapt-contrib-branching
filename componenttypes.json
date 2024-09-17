@@ -1,0 +1,158 @@
+{
+  "_isDeleted": false,
+  "_isAvailableInEditor": true,
+  "_isAddedByDefault": true,
+  "isLocalPackage": true,
+  "targetAttribute": "_branching",
+  "name": "adapt-contrib-branching",
+  "displayName": "Branching",
+  "description": "A simple branching extension",
+  "version": "1.3.1",
+  "framework": ">=5.19.1",
+  "homepage": "https://github.com/rambo-do-the-code/adapt-contrib-branching",
+  "issues": "https://github.com/adaptlearning/adapt_framework/issues/new",
+  "properties": {
+    "pluginLocations": {
+      "type": "object",
+      "properties": {
+        "course": {
+          "type": "object",
+          "properties": {
+            "_branching": {
+              "type": "object",
+              "legend": "Branching",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "default": true,
+                  "title": "Enable branching globally",
+                  "inputType": "Checkbox"
+                }
+              }
+            }
+          }
+        },
+        "article": {
+          "type": "object",
+          "properties": {
+            "_branching": {
+              "type": "object",
+              "legend": "Branching",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "default": false,
+                  "title": "Enable branching within this article",
+                  "inputType": "Checkbox"
+                },
+                "_start": {
+                  "type": "string",
+                  "default": "",
+                  "title": "Start block id",
+                  "inputType": "Text",
+                  "help": "Leave blank to use the first block"
+                }
+              }
+            }
+          }
+        },
+        "block": {
+          "type": "object",
+          "properties": {
+            "_branching": {
+              "type": "object",
+              "legend": "Branching",
+              "properties": {
+                "_correct": {
+                  "type": "string",
+                  "default": "",
+                  "title": "Correct target",
+                  "inputType": "Text",
+                  "help": "Next block to render if all questions in this block are answered correctly"
+                },
+                "_partlyCorrect": {
+                  "type": "string",
+                  "default": "",
+                  "title": "Partly correct target",
+                  "inputType": "Text",
+                  "help": "Next block to render if all questions in this block are answered partly correctly"
+                },
+                "_incorrect": {
+                  "type": "string",
+                  "default": "",
+                  "title": "Incorrect target",
+                  "inputType": "Text",
+                  "help": "Next block to render if all questions in this block are answered incorrectly"
+                },
+                "_hasAttemptBands": {
+                  "type": "boolean",
+                  "required": true,
+                  "default": false,
+                  "title": "Has attempt bands",
+                  "inputType": "Checkbox",
+                  "validators": [],
+                  "help": "When selected, this block will branch according to correctness and attempt rather than just correctness."
+                },
+                "_useQuestionAttempts": {
+                  "type": "boolean",
+                  "required": true,
+                  "default": false,
+                  "title": "Use question attempts",
+                  "inputType": "Checkbox",
+                  "validators": [],
+                  "help": "Controls whether this block will branch according previous completed attempts at this question"
+                },
+                "_attemptBands": {
+                  "type": "array",
+                  "required": true,
+                  "title": "Attempt bands",
+                  "items": {
+                    "type": "object",
+                    "required": true,
+                    "properties": {
+                      "_attempts": {
+                        "type": "number",
+                        "required": false,
+                        "default": 1,
+                        "title": "Minimum attempts",
+                        "inputType": "Number",
+                        "validators": [
+                          "number"
+                        ],
+                        "help": "Enter a value representing the attempts for the start of the range."
+                      },
+                      "_correct": {
+                        "type": "string",
+                        "default": "",
+                        "title": "Correct target",
+                        "inputType": "Text",
+                        "help": "Next block to render if all questions in this block are answered correctly"
+                      },
+                      "_partlyCorrect": {
+                        "type": "string",
+                        "default": "",
+                        "title": "Partly correct target",
+                        "inputType": "Text",
+                        "help": "Next block to render if all questions in this block are answered partly correctly"
+                      },
+                      "_incorrect": {
+                        "type": "string",
+                        "default": "",
+                        "title": "Incorrect target",
+                        "inputType": "Text",
+                        "help": "Next block to render if all questions in this block are answered incorrectly"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "globals": null,
+  "extension": "branching",
+  "__v": 0
+}
